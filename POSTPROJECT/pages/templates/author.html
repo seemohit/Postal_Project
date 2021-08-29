@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+    <style type="text/css">
+        body{
+            background-image : url("https://source.unsplash.com/collection/190727/1600x900");
+            position = absolute;
+            background-size : cover;
+            height : 100%;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .p{
+            text-align:center;
+            border:2px solid yellow;
+            margin:20px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="Show">
+{% for data in data %}
+    <div class="p">
+        <p> Created by : {{data.name}}</p>
+        <p> Title : {{data.title}}</p>
+        <p> Post </p>
+        <p> {{data.msg}}</p>
+        <p> Uploaded on : {{data.dat}}</p>
+    </div>
+{% endfor %}
+</div>
+</body>
+</html>

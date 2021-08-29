@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+    <style type="text/css">
+        body{
+            background-image : url("https://source.unsplash.com/collection/190727/1600x900");
+            position = absolute;
+            background-size : cover;
+            height : 100%;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding:0px;
+        }
+        .Con{
+            border: 2px solid black;
+            text-align:center;
+            padding:30px;
+            margin:20px ;
+
+        }
+
+        #po{
+            font-style:bold;
+
+        }
+        .dopbox{
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+
+<form method="post" action="/apply" class="dopbox">
+    {% csrf_token %}
+    <select name="dropdown">
+        <option value="select" selected>Name</option>
+        {% for data in student %}
+        <option value="{{data.name}}">{{data.name}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">APPLY</button>
+</form>
+<div class="bgimg">
+
+{% for data in student %}
+    <div class="Con">
+            <p> Created by : {{data.name}}</p>
+            <p> Title : {{data.title}}</p>
+            <p id="po"> Post : </p>
+            <p> {{data.msg}} </p>
+            <p> Uploaded on : {{data.dat}}</p>
+    </div>
+{% endfor %}
+
+
+</div>
+</body>
+</html>
